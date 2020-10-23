@@ -1,4 +1,8 @@
 
+GPG test
+git global email - n
+
+
 Questions:
 	- vim
 	- MVC architecture
