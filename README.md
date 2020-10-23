@@ -1,6 +1,6 @@
 
-GPG test
-git global email - n
+GPG Test
+prev unverified, reset to 444B@
 
 
 Questions:
