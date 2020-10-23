@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class =container> 
+  <h1>This is the form page</h1>
+  <h3>Thank you for subscribing!</h3>
+  <h2>Please confirm your information</h2>
+  <br>
+  name = {{ first_name }}
+  <br>
+  surname = {{ last_name }}
+  <br>
+  email is: {{ email }}
+  <br>
+  --------------------------
+  <br>
+  total subscribers {{ subscribers }}
+</div>
+
+
+
+{% endblock %}
