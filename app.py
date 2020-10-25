@@ -1,6 +1,22 @@
 from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///friends.db'
+
+# Initialize the Database
+db = SQLAlchemy(app)
+
+# # Create a db model
+# class Friends(db.Model):
+# 	id = db.Column(db.Integer, primary_key=True)
+# 	name = db.Column(db.String(200), nullable=False)
+# 	date_created = db.Column(db.Datetime, default=datetime.utcnow)
+
+# # Create a function to return a string when we add something
+# 	def__repr__(self):
+# 		return 'Name %r' % self.id
 
 subscribers = []
 

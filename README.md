@@ -1,8 +1,4 @@
 
-GPG Test
-prev unverified, reset to 444B@
-
-
 Questions:
 	- vim
 	- MVC architecture
