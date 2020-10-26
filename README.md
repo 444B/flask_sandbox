@@ -1,15 +1,4 @@
 
-Questions:
-	- vim
-	- MVC architecture
-	- further discussion of #!
-	- OOP
-
-Suggestions:
-	- learn github by commenting, issues etc...
-
-
-
 
 TO ACTIVATE:
 	- source virtual/bin/activate

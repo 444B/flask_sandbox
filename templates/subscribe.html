@@ -1,27 +1,39 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class =container> 
   <h2>This is the subscribe page</h2>
+
+<div class =container> 
+
+<!-- error alert -->
+{% if error_statement%}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Error </strong>{{ error_statement }}<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endif %}
+
 
 <form action="/form" method="POST">
 
+<!-- first name -->
   <div class="form-group">
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="First Name" name='first_name'>
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="First Name" name='first_name' value="{{ first_name }}">
   </div>
 
+<!-- last name -->
   <div class="form-group">
-    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Last Name" name='last_name'>
-
+    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Last Name" name='last_name' value="{{ last_name }}">
   </div>
 
+<!-- email  -->
   <div class="form-group">
-
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="First Name" name='email'>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="First Name" name='email' value="{{ email }}">
 
   </div>
   <button type="submit" class="btn btn-secondary">Submit</button>
-</form>
+  </form>
 
   
 

@@ -3,10 +3,10 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///friends.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///friends.db'
 
-# Initialize the Database
-db = SQLAlchemy(app)
+# # Initialize the Database
+# db = SQLAlchemy(app)
 
 # # Create a db model
 # class Friends(db.Model):
@@ -51,8 +51,8 @@ def form():
 
 # capture page if the form is incomplete
 	if not first_name or not last_name or not email:
-		error_statement = 'All form fields required'
-		return render_template('fail.html', 
+		error_statement = 'All form fields required...'
+		return render_template('subscribe.html', 
 			error_statement=error_statement, 
 			first_name=first_name, 
 			last_name=last_name, 
