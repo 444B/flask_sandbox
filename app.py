@@ -1,22 +1,11 @@
 from flask import Flask, render_template, request
-from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
+# app config
 app = Flask(__name__)
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///friends.db'
 
-# # Initialize the Database
-# db = SQLAlchemy(app)
+# Initialize the Database
 
-# # Create a db model
-# class Friends(db.Model):
-# 	id = db.Column(db.Integer, primary_key=True)
-# 	name = db.Column(db.String(200), nullable=False)
-# 	date_created = db.Column(db.Datetime, default=datetime.utcnow)
-
-# # Create a function to return a string when we add something
-# 	def__repr__(self):
-# 		return 'Name %r' % self.id
 
 subscribers = []
 
@@ -25,18 +14,15 @@ def index():
 	title = '444B\'s portfolio'
 	return render_template('index.html', title=title)
 
-@app.route('/about')
-def about():
-	title = 'About page'
-	return render_template('about.html', title=title)
+@app.route('/product_entry')
+def entry():
+	title = 'Product Entry Page'
+	return render_template('product_entry.html', title=title)
 
-@app.route('/sandbox')
-def sandbox():
-	title = 'Subsribe'
-	names = ['john', 'mary', 'wess']
-	return render_template('sandbox.html', 
-		title=title, 
-		names=names)
+@app.route('/product_search')
+def search():
+	title = 'Product Search'
+	return render_template('product_search.html', title=title)
 
 @app.route('/subscribe')
 def subscribe():
