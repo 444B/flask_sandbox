@@ -2,10 +2,24 @@
 {% block content %}
 
 <div class =container> 
-  <h2>This is the Product Entry page</h2>
+ 	<h2>This is the Product Entry page</h2>
+	<br>
 
+<form action="/product_entry" method="POST">
 
+<!-- Product name -->
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Product Name" name='name' >
+  </div>
 
+<!-- Price -->
+  <div class="form-group">
+    <input type="number" class="form-control" placeholder="Price" name='price' >
+  </div>
+
+  
+  <button type="submit" class="btn btn-secondary">Submit</button>
+  </form>
 
 
 </div>

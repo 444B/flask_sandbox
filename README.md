@@ -15,3 +15,5 @@ Topics covered:
 	- jinja
 	- url_for
 	- web forms
+	- sqlite3
+	- sqlalchemy
