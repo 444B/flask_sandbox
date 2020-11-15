@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
+{% block title %}Product Entry Page{% endblock %}
+
+
 {% block content %}
 
 <div class =container> 
  	<h2>This is the Product Entry page</h2>
-	<br>
 
 <form action="/product_entry" method="POST">
 
@@ -20,15 +22,6 @@
   
   <button type="submit" class="btn btn-secondary">Submit</button>
   </form>
-<p>Stored product name is: 
-	<br>
- 	<strong>{{ product }}</strong> 
-</p>
-<br>
-<p>Stored price is:
-	<br>
-	<strong>{{ price }}</strong>
-</p>
 </div>
 
 {% endblock %}

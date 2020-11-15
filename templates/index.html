@@ -1,34 +1,13 @@
 {% extends 'base.html' %}
+{% block title %}Index Page{% endblock %}
+
 {% block content %}
 
 <div class =container> 
   <h1>Hello, world!</h1>
   <h2>This is the Landing page</h2>
 
-<!-- Add -->
-<div class =container> 
-<form action="/product_entry" method="POST">
 
-<!-- Product name -->
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Product Name" name='product' >
-  </div>
-
-<!-- Price -->
-  <div class="form-group">
-    <input type="number" class="form-control" placeholder="Price" name='price' >
-  </div>
-
-  
-  <button type="submit" class="btn btn-secondary">Submit</button>
-  </form>
-<p>Stored product name is:{{ product }}</p>
-<br>
-<p>Stored price is:{{ price }}</p>
-<br>
-<p>Search result is:{{ result }}</p>
-  
-<h2>Hey Dude</h2>
 </div>
 
 {% endblock %}

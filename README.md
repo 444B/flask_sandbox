@@ -1,4 +1,10 @@
 
+<!-- Two options for launching:
+First Option: Automatic
+- within a terminal, use "bash launcher.sh", which will automate the entire second option described below
+
+
+Second Option: --> Manual
 
 TO ACTIVATE:
 	- source virtual/bin/activate

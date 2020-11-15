@@ -13,11 +13,11 @@
 
 
 
-    <title>{{ title }}</title>
+    <title>{% block title %}NO TITLE{% endblock %}</title>
   </head>
   <body>
 
-  	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  	<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <a class="navbar-brand" href="{{ url_for('index')}}">A4L</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -29,22 +29,19 @@
         <a class="nav-link" href="{{ url_for('index')}}">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Product
-        </a>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Database</a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ url_for('entry')}}">Entry</a>
+          <a class="dropdown-item" href="{{ url_for('entry')}}">Submit an entry</a>
+          <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{ url_for('search')}}">Search</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ url_for('results')}}">Search History</a>
         </div>
       </li>
       <li class="nav-item">
-      	<a class="nav-link" href="{{ url_for('subscribe')}}">Subscribe</a>
+        <a class="nav-link" href="{{ url_for('readme')}}">README</a>
       </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search_term">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav>
 <br>
