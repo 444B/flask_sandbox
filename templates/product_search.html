@@ -4,24 +4,28 @@
 {% block content %}
 
 <div class =container> 
-  <h2>This is the Product Search page</h2>
+	<h2>This is the Product Search page</h2>
 
-<form action="/product_search" method="GET">
 
-<!-- Product name -->
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Product Name" name='name' >
-  </div>
-
- 
-  <button type="submit" class="btn btn-secondary">Submit</button>
-  </form>
-
-<p>Search result is: 
-	<br>
-	<strong>{{ result }}</strong>
-</p>
-
+	<form action="/product_search" method="GET">
+		<div class="form-group">
+  			<div class="col col-6">
+     			<input type="text" class="form-control" placeholder="Search" name='search_term'>
+     			<!-- Product Name Radio -->
+     			<div class="form-check">
+  					<input class="form-check-input" type="radio" name="radio" id="exampleRadios1" value="name" checked>
+  						<label class="form-check-label" for="exampleRadios1">Product Name</label>
+				</div>
+				
+				<!-- Price Radio -->
+				<div class="form-check">
+  					<input class="form-check-input" type="radio" name="radio" id="exampleRadios2" value="price">
+  						<label class="form-check-label" for="exampleRadios2">Price</label>
+     			<br>
+    			<button type="submit" class="btn btn-secondary">Submit</button>
+  	 		</div>
+		</div>
+ 	</form>
 </div>
 
 {% endblock %}

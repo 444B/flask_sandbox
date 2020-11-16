@@ -14,43 +14,74 @@ def index():
 
 @app.route('/product_entry', methods=['GET', 'POST'])
 def entry():
+	status = 'failure'
 	if request.method == 'GET':
 		return render_template('product_entry.html')
 	if request.method == 'POST':
-		product = request.form.get('product')
-		price = request.form.get('price')
-		connection = sqlite3.connect('products.db')
-		cursor = connection.cursor()
-		cursor.execute('INSERT INTO product_table VALUES (NULL,?,?)', (product, price))
-		connection.commit()
-		return render_template('product_entry.html', product=product, price=price)
+		try:
+			product = request.form.get('product')
+			price = request.form.get('price')
+			connection = sqlite3.connect('products.db')
+			cursor = connection.cursor()
+			cursor.execute('INSERT INTO product_table VALUES (NULL,?,?)', (product, price))
+			connection.commit()
+			return render_template('entry_success.html', product=product, price=price)
+		except Exception as f:
+			print(f, file=sys.stderr)
+			return render_template('entry_failure.html', product=product, price=price)
+
+			
 
 @app.route('/product_search', methods=['GET', 'POST'])
 def search():
 	try:
 		if request.method == 'GET':
-			name = request.args.get('name')
+			search_term = request.args.get('search_term')
+			radio = request.args.get('radio')
 			connection = sqlite3.connect('products.db')
 			cursor = connection.cursor()
-			cursor.execute("SELECT Price from product_table WHERE Product = ? ", (name,))
+			if radio == 'name':
+				cursor.execute("SELECT Price from product_table WHERE Product = ? ", (search_term,))
+			if radio == 'price':
+				cursor.execute("SELECT Product from product_table WHERE Price = ? ", (search_term,))	
 			result = cursor.fetchone()[0]
-			return render_template ("results.html", result=result)
+			return render_template ("search_success.html", result=result)
 		if request.method == 'POST':
 			return render_template ("product_search.html")
 	except Exception as e:
-		name = request.args.get('name')
 		print(e, file=sys.stderr)
-		print("{n} does not exist".format(n=name))
 		return render_template ("product_search.html")
 
-search_history = []
-@app.route('/results')
-def results():
-	return render_template('results.html')
 
 @app.route('/readme')
 def readme():
 	return render_template('readme.html')
+
+@app.route('/entry_success')
+def entry_success():
+	return render_template('entry_success.html')
+
+@app.route('/entry_failure')
+def entry_failure():
+	return render_template('entry_failure.html')
+
+@app.route('/search_success')
+def search_success():
+	return render_template('search_success.html')
+
+@app.route('/search_failure')
+def search_failure():
+	return render_template('search_failure.html')
+
+search_history = [{'apple' : 9.0,
+				  'banana' : 11,
+				  'orange' : 15,
+				  'mango' : 3.5}]
+@app.route('/update_delete')
+def update_delete():
+	return render_template('update_delete.html', search_history=search_history)
+
+
 
 # @app.route('/subscribe')
 # def subscribe():

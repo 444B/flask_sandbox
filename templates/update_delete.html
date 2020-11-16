@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Update and Deletion Page{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+{{ search_history }}
+
+{% for entries in search_history %}
+   {% for key, value in search_history.items() %}
+   <div class="container">
+   	<h4>Key: {{key}}</h4>
+     <h4>Value: {{value}}</h4>
+   </div>
+   {% endfor %}
+{% endfor %}
+
+
+<div class="alert alert-info alert-dismissible fade show" role="alert">
+  Only previously discovered items <a href="{{ url_for('entry')}}" class="alert-link">(Submitted</a> or <a href="{{ url_for('search')}}" class="alert-link">Searched)</a> are available for updating or deleting.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+</div>
+
+{% endblock %}
