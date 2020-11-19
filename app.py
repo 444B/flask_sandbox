@@ -6,6 +6,12 @@ import sys
 # app config
 app = Flask(__name__)
 
+history = {'apple' : 9.0,
+		    'banana' : 11,
+			'orange' : 15,
+			'mango' : 3.5}
+
+
 # Flask Site Structure
 @app.route('/')
 def index():
@@ -13,16 +19,16 @@ def index():
 
 @app.route('/product_entry', methods=['GET', 'POST'])
 def entry():
-	status = 'failure'
 	if request.method == 'GET':
 		return render_template('product_entry.html')
 	if request.method == 'POST':
 		try:
 			product = request.form.get('product')
 			price = request.form.get('price')
+			history[product] = price
 			connection = sqlite3.connect('products.db')
 			cursor = connection.cursor()
-			cursor.execute('INSERT INTO product_table VALUES (NULL,?,?)', (product, price))
+			cursor.execute('INSERT INTO product_table VALUES (NULL,?,?,NULL)', (product, price))
 			connection.commit()
 			return render_template('entry_success.html', product=product, price=price)
 		except Exception as f:
@@ -72,15 +78,24 @@ def search_success():
 def search_failure():
 	return render_template('search_failure.html')
 
-search_history = [{'apple' : 9.0,
-				  'banana' : 11,
-				  'orange' : 15,
-				  'mango' : 3.5}]
 @app.route('/update_delete')
 def update_delete():
-	return render_template('update_delete.html', search_history=search_history)
+		return render_template('update_delete.html', history=history)
+
+@app.route('/deleter', methods=['GET', 'POST'])
+def delete():
+	if request.method == 'GET':
+		return render_template('deleter.html')
+	if request.method == 'POST':
+		return render_template('deleter.html')
 
 
+@app.route('/updater', methods=['GET', 'POST'])
+def update():
+	if request.method == 'GET':
+		return render_template('updater.html')
+	if request.method == 'POST':
+		return render_template('updater.html')
 
 # @app.route('/subscribe')
 # def subscribe():

@@ -1,16 +1,15 @@
 {% extends 'base.html' %}
-{% block title %}Results Page{% endblock %}
+{% block title %}Deleter{% endblock %}
 
 {% block content %}
 
 <div class="container">
-	<h2> This is the results page </h2>
+	<h2> This is the Deleting page </h2>
 	<p>
 		Search result is: 
 		<br>
 		<strong>{{ result }}</strong>
 	</p>
-	
 <br>
 <a class="btn btn-primary" href="{{ url_for('search')}}" role="button">Back to search</a>
 

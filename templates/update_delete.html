@@ -5,16 +5,40 @@
 
 <div class="container">
 
-{{ search_history }}
 
-{% for entries in search_history %}
-   {% for key, value in search_history.items() %}
-   <div class="container">
-   	<h4>Key: {{key}}</h4>
-     <h4>Value: {{value}}</h4>
-   </div>
-   {% endfor %}
+
+<dl>
+
+{% for key, value in history.items() %}
+  <div class="row">
+    <div class="col-xs-3 rounded" style="background-color: white">
+      <dt>Product Name = {{ key }}</dt>
+      <dd>Price = {{ value }}</dd>
+    </div>
+
+    <div class="col-xs-3">
+      <form action="/updater" method="POST">
+        <input type="submit" value="Update" class="btn btn-outline-success btn-sm" name="delete">
+      </form>
+
+      <form action="/deleter" method="POST">
+        <input type="submit" value="Delete" class="btn btn-outline-danger btn-sm" name="update">
+      </form>
+
+    </div>
+  </div>
+  <br>
 {% endfor %}
+   
+
+</dl>
+
+
+
+
+
+
+
 
 
 <div class="alert alert-info alert-dismissible fade show" role="alert">
