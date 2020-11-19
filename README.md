@@ -2,25 +2,22 @@
 TODO:
 configure launcher.sh to automate all the steps below
 
-<!-- Two options for launching:
-First Option: 
-	Automatic
-- within a terminal, use "bash launcher.sh", which will automate the entire second option described below
+STEPS: :arrow_heading_down:
 
+:one: : DOWNLOAD 
 
-Second Option: --> 
-	Manual
+	git clone https://github.com/444B/flask_sandbox.git
+:two: : ACTIVATE
 
-TO DOWNLOAD:
-	- git clone https://github.com/444B/flask_sandbox.git
-TO ACTIVATE:
-	- cd <dir/of/cloned/repo>
-	- source virtual/bin/activate
-TO RUN:
-	- export FLASK_APP=app.py
-	- export FLASK_ENV=development
-	- flask run
+	cd <dir/of/cloned/repo>
+	source virtual/bin/activate
+:three: : RUN
+
+	export FLASK_APP=app.py
+	export FLASK_ENV=development
+	flask run
 	
 To DEACTIVATE VENV:
-	- deactivate
+
+	deactivate
 

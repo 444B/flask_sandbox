@@ -3,7 +3,6 @@ import sqlite3
 import sys
 
 
-
 # app config
 app = Flask(__name__)
 
